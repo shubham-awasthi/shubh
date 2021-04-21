@@ -1,0 +1,58 @@
+Time Conversion : -
+
+time = s.split(":")
+    if s[-2:] == "PM":
+        if time[0] != "12":
+            time[0] = str(int(time[0])+12)
+    else:
+        if time[0] == "12":
+            time[0] = "00"
+    ntime = ':'.join(time)
+    return str(ntime[:-2])
+
+Changing bits : -
+
+def getBit(n, offset):
+    return (n & (1 << offset)) >> offset
+
+def clearBit(n, offset):
+    return n & ~(1 << offset)
+
+def setBit(n, offset):
+    return n | (1 << offset)
+
+def changing_bits_challenge():
+
+    n, q = map(int, raw_input().split())
+    a = int(raw_input(), 2)
+    b = int(raw_input(), 2)
+
+    c = []
+    for _ in xrange(q):
+        words = raw_input().split()
+        operator = words[0][4]
+        bit_number = int(words[1])
+
+        if operator == 'c':
+            c.append(getBit(a+b, bit_number))
+
+        if operator == 'a':
+            a = clearBit(a, bit_number) if words[2] == '0' 
+                else setBit(a, bit_number)
+
+        if operator == 'b':
+            b = clearBit(b, bit_number) if words[2] == '0'
+                else setBit(b, bit_number)
+
+    print ''.join(str(i) for i in c)
+
+changing_bits_challenge()
+
+
+
+
+
+
+
+
+

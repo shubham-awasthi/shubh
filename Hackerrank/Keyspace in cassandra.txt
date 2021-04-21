@@ -1,0 +1,7 @@
+CREATE KEYSPACE my_first_keyspace
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+CREATE KEYSPACE starting
+WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};
+
+C:\Users\shubh026\Desktop\cfd1e75e-85f1-4988-b80d-70e591436bd0\linkedlist_java
